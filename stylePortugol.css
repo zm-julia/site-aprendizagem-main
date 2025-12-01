@@ -1,0 +1,127 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color:#020141;
+  padding: 70px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px; /* Mantém espaçamento lateral só no conteúdo, não na logo */
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Logo bem no canto esquerdo da tela */
+.logo {
+  height: 120px;
+  width: auto;
+  cursor: pointer;
+  padding: 0 20px;
+  z-index: 10;
+  position: fixed; /* fixa no canto */
+  left: 0;         /* encosta na lateral da tela */
+  top: 15px;       /* alinhado verticalmente conforme padding do header */
+  margin: 0;       /* remove margens */
+}
+
+/* Menu centralizado */
+nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 30px;
+}
+
+/* Links do menu */
+nav a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #007BFF;
+  text-decoration: underline;
+}
+
+/* Espaço para o conteúdo não ficar escondido atrás do header fixo */
+body {
+  padding-top: 80px;
+  background-color: #020141;
+}
+
+body {
+  background-color: #020141;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+h1{
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+  font-size: 2.1rem;
+}
+p{
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.imagem{
+  text-align: center;
+}
+.novidades-container {
+  margin: 40px 60px ;
+  padding: 20px 60px;
+  background-color: white;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  line-height: 1.4;
+}
+.container-cards {
+  display: flex;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.card-info {
+  background: #960091;
+  width: 1300px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 12px 12px rgba(0,0,0,0.1);
+  transition: transform .2s;
+  margin-left: 280px;
+
+}
+
+.card-info:hover {
+  transform: scale(1.03);
+}
+
+.card-info img {
+  width: 500px;
+  border-radius: 8px;
+}
+
+.card-info h3 {
+  margin-top: 15px;
+}
+
+.card-info ul {
+  padding-left: 20px;
+}
