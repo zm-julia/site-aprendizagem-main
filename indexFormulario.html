@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styleDER.css">
+    <link rel="shortcut icon" href="./NextTech_logo_transparente.png" type="image/x-icon">
+    <title>Formulário Cadrasto</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <img src="./NextTech_logo_transparente.png" alt="Logo do site" class="logo">
+            <nav>
+                <a href="./index.html">Home</a>
+                <a href="./indexBanco.html">Voltar</a>
+            </nav>
+        </div>
+    </header>
+
+
+<br><br><br><br><br><br><br>
+    <div class="card-info">
+        <br><br>
+        <h2>Formulário para cadastro de dados simulando a gravação dos dados</h2>
+        <div class="imagem">
+            <img src="" alt="">
+        </div>
+        <p><strong></strong>
+        <br>
+    </div>
+
+
+  
+
+
+<br><br><br><br><br><br>
+    <div class="card-info">
+        <br><br>
+        <h2>Cadrastar Dados:</h2>
+        <div class="imagem">
+            <img src="" alt="">
+        </div>
+        <p><strong></strong>
+
+
+  
+<p>Digite suas informações nos campos abaixo e pressione "Registrar" para testar o envio dos dados.</p><br>
+
+<div class="form-box">
+  <form id="cadastroForm">
+    <label>Nome:</label>
+    <input type="text" id="nome" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Idade:</label>
+    <input type="number" id="idade" required>
+
+    <label>Data de Cadastro:</label>
+    <input type="date" id="data" required>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+</div><br>
+
+<!-- EXIBIÇÃO DOS DADOS CADASTRADOS -->
+<div id="resultado" class="resultado-box">
+  <h3>As informações inseridas serão exibidas neste espaço.</h3>
+  <div id="listaCadastros"></div>
+</div>
+
+<!-- SCRIPT QUE SIMULA A GRAVAÇÃO DOS DADOS -->
+<script>
+  document.getElementById("cadastroForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const idade = document.getElementById("idade").value;
+    const data = document.getElementById("data").value;
+
+    const linha = `
+      <div class="resultado-item">
+        <p><strong>Nome:</strong> ${nome}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Idade:</strong> ${idade}</p>
+        <p><strong>Data:</strong> ${data}</p>
+        <hr>
+      </div>
+    `;
+
+    document.getElementById("listaCadastros").innerHTML += linha;
+
+    document.getElementById("cadastroForm").reset();
+  });
+</script>
+    </div>     
+</div><br></div><br></div>
+
+
+  <!-- footer -->
+  <footer>
+    <p>© 2025 UNIVERSO TECH — Marca Registrada. Todos os direitos reservados.</p>
+    <p>By Luiza Michielin Reinhardt &copy; &trade;
+      <a href="http://instagram.com/lu.michielin/">
+        <img src="./logos/rdsocial_img.png" alt="Logo insta" style="height: 40px;">
+      </a>
+    </p>
+  </footer>
+</body>
+</html>
+        <br>
+    </div>
+
