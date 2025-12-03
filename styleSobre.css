@@ -170,9 +170,11 @@ button {
 
 }
 
-.videoLeideOhm{
-  text-align: center
+a{
+  font-size: 1.5rem;
+  color: white;
 }
+
 
 footer {
     background-color: #05044e;
@@ -181,3 +183,4 @@ footer {
     padding: 20px;
     margin-top: 40px;
   }
+
