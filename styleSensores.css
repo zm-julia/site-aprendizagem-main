@@ -127,3 +127,11 @@ p{
 .card-info ul {
   padding-left: 20px;
 }
+
+footer {
+    background-color: #05044e;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+  }
