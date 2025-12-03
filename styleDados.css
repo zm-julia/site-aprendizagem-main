@@ -107,6 +107,7 @@ p{
   box-shadow: 0 12px 12px rgba(0,0,0,0.1);
   transition: transform .2s;
   margin-left: 280px;
+  text-align: center;
 
 }
 

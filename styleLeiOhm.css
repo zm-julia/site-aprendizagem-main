@@ -116,7 +116,7 @@ p{
 }
 
 .card-info img {
-  width: 480px;
+  width: 650px;
   border-radius: 8px;
 }
 
@@ -168,4 +168,8 @@ button {
   text-align: center;
   
 
+}
+
+.videoLeideOhm{
+  text-align: center
 }

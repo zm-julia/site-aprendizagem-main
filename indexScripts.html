@@ -2,86 +2,68 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styleHTML.css">
-    <link rel="shortcut icon" href="./NextTech_logo_transparente.png" type="image/x-icon">
-    <title>HTML e CSS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styleScripts.css" />
+    <link rel="shortcut icon" href="./NextTech_logo_transparente.png" type="image/x-icon" />
+    <title>Scripts</title>
 </head>
 
-        section class="novidades-section"><br>
-    <div class="novidades-wrapper">
-      <div class="novidades-container">
-       <br>
-        <div class="container-cards">
-          <div class="card-info">
- 
-        <h2>1 - Ordenar números</h2>
-        <button onclick="acaoOrdenar()">Executar</button><br><br>
-        <div id="r5" class="resultado"></div>
+<body>
+
+    <div class="card-info">
+        <h1>Soma de 10 números aleatórios (1 a 220)</h1>
+        <button onclick="somarAleatorios()">Gerar e Somar</button>
+        <div id="resultadoSoma"></div>
     </div>
 
-    <!-- CARD 6 -->
-     <div class="card-info">
-        <h2>2 - Bubble Sort</h2>
-        <button onclick="acaoBubble()">Gerar e Ordenar</button><br><br>
-        <div id="r6" class="resultado"></div>
+    <div class="card-info">
+        <h1>Matriz 3x3 Aleatória (1 a 20)</h1>
+        <button onclick="gerarMatriz()">Gerar Matriz</button>
+        <div id="resultadoMatriz"></div>
     </div>
 
-    <!-- CARD 7 -->
-     <div class="card-info">
-        <h2>3 - Soma de 10 números</h2>
-        <button onclick="acaoSomar()">Gerar e Somar</button><br><br>
-        <div id="r7" class="resultado"></div>
+    <div class="card-info">
+        <h1>Cálculo do IMC</h1>
+
+        <div class="calculadora">
+            <label>Peso (kg):</label>
+            <input type="number" id="pesoIMC" placeholder="Ex: 60">
+        </div>
+
+        <div class="calculadora">
+            <label>Altura (m):</label>
+            <input type="number" id="alturaIMC" step="0.01" placeholder="Ex: 1.70">
+        </div>
+
+        <button onclick="calcularIMC()">Calcular IMC</button>
+
+        <div id="resultadoIMC"></div>
     </div>
 
-    <!-- CARD 8 -->
- <div class="card-info">
-        <h2>4 - Matriz 3x3</h2>
-        <button onclick="acaoMatriz()">Gerar Matriz</button><br><br>
-        <div id="r8" class="resultado"></div>
+    <div class="card-info">
+        <h1>Conversor de Temperatura</h1>
+
+        <div class="calculadora">
+            <label>Temperatura:</label>
+            <input type="number" id="temp" placeholder="Digite o valor">
+        </div>
+
+        <button onclick="converterCF()">Converter °C → °F</button>
+        <button onclick="converterFC()">Converter °F → °C</button>
+
+        <div id="resultadoTemp"></div>
     </div>
 
-    <!-- CARD 9 -->
-   <div class="card-info">
-        <h2>5 - IMC</h2>
-        Peso (kg): <input id="peso1" type="number"><br><br>
-        Altura (m): <input id="altura1" type="number" step="0.01"><br><br>
-        <button onclick="acaoIMC()">Calcular</button><br><br>
-        <div id="r9" class="resultado"></div>
+    <div class="card-info">
+        <h1>Busca Linear</h1>
+
+        <div class="calculadora">
+            <label>Valor para buscar:</label>
+            <input type="number" id="valorBusca">
+        </div>
+
+        <button onclick="buscarLinear()">Buscar</button>
+
+        <div id="resultadoBusca"></div>
     </div>
-
-    <!-- CARD 10 -->
-     <div class="card-info">
-        <h2>6 - Conversor de Temperatura</h2>
-        Valor: <input id="tempValor" type="number"><br><br>
-        <button onclick="acaoTempCtoF()">Celsius → Fahrenheit</button><br><br>
-        <button onclick="acaoTempFtoC()">Fahrenheit → Celsius</button><br><br>
-        <div id="r10" class="resultado"></div>
-    </div>
-
-    <!-- CARD 11 -->
-   <div class="card-info">
-        <h2>7 - Busca Linear</h2>
-        <p>A busca linear procura um valor percorrendo a lista elemento por elemento. É simples e funciona em listas não ordenadas, mas pode ser lenta em listas grandes porque verifica tudo até encontrar o item.
-        </p><br>
-        Lista (ex: 1, 4, 9, 3):<br>
-        <input id="listaBusca" type="text"><br><br>
-        Alvo: <input id="alvoBusca" type="number"><br><br>
-        <button onclick="acaoBusca()">Buscar</button><br><br>
-        <div id="r11" class="resultado"></div>
-    </div>
-
-    <!-- CARD 12 -->
-     <div class="card-info">
-        <h2>8 - IMC (2)</h2>
-        Peso (kg): <input id="peso2" type="number"><br><br>
-        Altura (m): <input id="altura2" type="number" step="0.01"><br><br>
-        <button onclick="acaoIMC2()">Calcular</button><br><br>
-        <div id="r12" class="resultado"></div>
-
-      </div>
-</div>  <br>
-</div> 
-</div> 
-</div> 

@@ -1,182 +1,91 @@
-/* ============================
- Funções básicas (itens 5 a 12)
-============================ */
+<script>
+        function somarAleatorios() {
+            let numeros = [];
+            for (let i = 0; i < 10; i++) {
+                numeros.push(Math.floor(Math.random() * 220) + 1);
+            }
 
+            const soma = numeros.reduce((a, b) => a + b, 0);
 
-// 5 - ordenar 1..20
-function ordenarCrescente() {
-  let nums = [];
-  for (let i = 1; i <= 20; i++) nums.push(i);
-  return nums;
-}
-function ordenarDecrescente() {
-  let nums = [];
-  for (let i = 20; i >= 1; i--) nums.push(i);
-  return nums;
-}
+            document.getElementById("resultadoSoma").innerHTML =
+                `Números: ${numeros.join(", ")}<br>Soma total: ${soma}`;
+        }
 
-// 6 - bubble sort
-function bubbleSortAleatorio() {
-  let arr = [];
-  for (let i = 0; i < 10; i++) arr.push(Math.floor(Math.random() * 20) + 1);
+        function gerarMatriz() {
+            let matriz = [];
 
-  for (let i = 0; i < arr.length - 1; i++) {
-    for (let j = 0; j < arr.length - 1 - i; j++) {
-      if (arr[j] > arr[j + 1]) {
-        let tmp = arr[j];
-        arr[j] = arr[j + 1];
-        arr[j + 1] = tmp;
-      }
-    }
-  }
-  return arr;
-}
+            for (let i = 0; i < 3; i++) {
+                matriz[i] = [];
+                for (let j = 0; j < 3; j++) {
+                    matriz[i][j] = Math.floor(Math.random() * 20) + 1;
+                }
+            }
 
-// 7 - somar 10 aleatórios
-function somarAleatorios() {
-  let arr = [];
-  let soma = 0;
+            let texto = "";
+            matriz.forEach(linha => {
+                texto += linha.join(" | ") + "<br>";
+            });
 
-  for (let i = 0; i < 10; i++) {
-    let n = Math.floor(Math.random() * 220) + 1;
-    arr.push(n);
-    soma += n;
-  }
+            document.getElementById("resultadoMatriz").innerHTML = texto;
+        }
 
-  return { array: arr, total: soma };
-}
+        function calcularIMC() {
+            const peso = parseFloat(document.getElementById("pesoIMC").value);
+            const altura = parseFloat(document.getElementById("alturaIMC").value);
 
-// 8 - matriz 3x3
-function gerarMatriz() {
-  let m = [];
-  for (let i = 0; i < 3; i++) {
-    let linha = [];
-    for (let j = 0; j < 3; j++) {
-      linha.push(Math.floor(Math.random() * 20) + 1);
-    }
-    m.push(linha);
-  }
-  return m;
-}
+            if (isNaN(peso) || isNaN(altura)) {
+                document.getElementById("resultadoIMC").innerHTML =
+                    "Preencha todos os campos.";
+                return;
+            }
 
-// 9 / 12 - IMC
-function calcularIMC(p, a) {
-  if (!p || !a) return NaN;
-  return (p / (a * a)).toFixed(2);
-}
+            const imc = peso / (altura * altura);
 
-// 10 - temperatura
-function converterTemperatura(v, tipo) {
-  if (isNaN(v)) return NaN;
+            document.getElementById("resultadoIMC").innerHTML =
+                `IMC: ${imc.toFixed(2)}`;
+        }
 
-  if (tipo === "CtoF") return (v * 9/5 + 32).toFixed(2);
-  if (tipo === "FtoC") return ((v - 32) * 5/9).toFixed(2);
+        function converterCF() {
+            const c = parseFloat(document.getElementById("temp").value);
+            if (isNaN(c)) return;
 
-  return NaN;
-}
+            const f = (c * 9 / 5) + 32;
+            document.getElementById("resultadoTemp").innerHTML =
+                `${c}°C = ${f.toFixed(2)}°F`;
+        }
 
-// 11 - busca linear
-function buscaLinear(arr, alvo) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === alvo) return i;
-  }
-  return -1;
-}
+        function converterFC() {
+            const f = parseFloat(document.getElementById("temp").value);
+            if (isNaN(f)) return;
 
-/* =============================================
- Funções chamadas pelos botões do HTML
-============================================= */
+            const c = (f - 32) * 5 / 9;
+            document.getElementById("resultadoTemp").innerHTML =
+                `${f}°F = ${c.toFixed(2)}°C`;
+        }
 
-function acaoOrdenar() {
-  document.getElementById("r5").innerHTML =
-    "Crescente: " + ordenarCrescente().join(", ") +
-    "<br>Decrescente: " + ordenarDecrescente().join(", ");
-}
+        function buscarLinear() {
+            const array = [5, 12, 8, 33, 2, 19, 7, 25];
+            const valor = parseInt(document.getElementById("valorBusca").value);
 
-function acaoBubble() {
-  document.getElementById("r6").innerHTML =
-    "Ordenado: " + bubbleSortAleatorio().join(", ");
-}
+            let posicao = -1;
 
-function acaoSomar() {
-  let r = somarAleatorios();
-  document.getElementById("r7").innerHTML =
-    "Números: " + r.array.join(", ") +
-    "<br>Total: " + r.total;
-}
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === valor) {
+                    posicao = i;
+                    break;
+                }
+            }
 
-function acaoMatriz() {
-  let m = gerarMatriz();
-  document.getElementById("r8").innerHTML =
-    "<pre>" + m.map(l => l.join(" | ")).join("\n") + "</pre>";
-}
+            if (posicao === -1) {
+                document.getElementById("resultadoBusca").innerHTML =
+                    `Valor não encontrado no array.`;
+            } else {
+                document.getElementById("resultadoBusca").innerHTML =
+                    `Valor encontrado na posição ${posicao}.`;
+            }
+        }
+    </script>
 
-function acaoIMC() {
-  let p = parseFloat(document.getElementById("peso1").value);
-  let a = parseFloat(document.getElementById("altura1").value);
+</body>
 
-  if (isNaN(p) || isNaN(a)) {
-    document.getElementById("r9").innerHTML = "Preencha corretamente.";
-    return;
-  }
-
-  document.getElementById("r9").innerHTML = "IMC = " + calcularIMC(p, a);
-}
-
-function acaoTempCtoF() {
-  let v = parseFloat(document.getElementById("tempValor").value);
-
-  if (isNaN(v)) {
-    document.getElementById("r10").innerHTML = "Valor inválido.";
-    return;
-  }
-
-  document.getElementById("r10").innerHTML =
-    `${v} °C = ${converterTemperatura(v, "CtoF")} °F`;
-}
-
-function acaoTempFtoC() {
-  let v = parseFloat(document.getElementById("tempValor").value);
-
-  if (isNaN(v)) {
-    document.getElementById("r10").innerHTML = "Valor inválido.";
-    return;
-  }
-
-  document.getElementById("r10").innerHTML =
-    `${v} °F = ${converterTemperatura(v, "FtoC")} °C`;
-}
-
-function acaoBusca() {
-  let raw = document.getElementById("listaBusca").value;
-
-  if (!raw.trim()) {
-    document.getElementById("r11").innerHTML = "Informe uma lista.";
-    return;
-  }
-
-  let arr = raw.split(",").map(n => Number(n.trim())).filter(n => !isNaN(n));
-  let alvo = parseFloat(document.getElementById("alvoBusca").value);
-
-  if (isNaN(alvo)) {
-    document.getElementById("r11").innerHTML = "Informe um número alvo.";
-    return;
-  }
-
-  let pos = buscaLinear(arr, alvo);
-
-  document.getElementById("r11").innerHTML =
-    pos >= 0 ? "Encontrado na posição " + pos : "Não encontrado.";
-}
-
-function acaoIMC2() {
-  let p = parseFloat(document.getElementById("peso2").value);
-  let a = parseFloat(document.getElementById("altura2").value);
-
-  if (isNaN(p) || isNaN(a)) {
-    document.getElementById("r12").innerHTML = "Preencha corretamente.";
-    return;
-  }
-
-  document.getElementById("r12").innerHTML = "IMC = " + calcularIMC(p, a);
-}
+</html>
